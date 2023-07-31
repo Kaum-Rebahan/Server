@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contoh cURL di PHP</title>
+</head>
+<body>
+    <h1>Data dari URL Eksternal</h1>
+    <div>
+        <?php
+        // Inisialisasi cURL session
+        $ch = curl_init();
+
+        // URL dari halaman web eksternal
+        $url = 'https://github.com/Kaum-Rebahan/Server/tree/main/KR_TC/u0_a586.txt';
+
+        // Set opsi cURL
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        // Eksekusi cURL dan simpan hasilnya
+        $response = curl_exec($ch);
+
+        // Tutup session cURL
+        curl_close($ch);
+
+        // Tampilkan konten yang diambil dari URL eksternal
+        echo $response;
+        ?>
+    </div>
+</body>
+</html>
